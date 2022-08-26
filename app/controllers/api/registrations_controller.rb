@@ -6,7 +6,7 @@ class Api::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     if @user.save!
-      @token = generate_jwt(@user.id)
+      @token = JWT.encode({ id: @user.id, exp: 60.days.from_now.to_i }, ENV['SECRET_KEY_BASE'])
       access_token = AccessToken.new(token: @token, user: @user)
       if access_token.save!
         render json: { user: @user, token: @token }, status: :ok
