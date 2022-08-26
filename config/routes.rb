@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
+  default_url_options :host => "https://power-motorcycles-api.herokuapp.com"
+
 end
