@@ -81,9 +81,3 @@ end
 gem 'devise'
 gem 'rswag'
 gem 'rubocop', '>= 1.0', '< 2.0'
-source "https://rubygems.org"
-gem 'sinatra', '1.0'
-
-group :production do
-  gem 'rails_12factor', '0.0.2'
-end
